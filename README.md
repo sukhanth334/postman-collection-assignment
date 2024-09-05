@@ -26,4 +26,4 @@ Running Tests
    - Check the results in the Collection Runner interface to see the test outcomes.
 
  Test Report
-The test report summarizing the results of the automated tests is available in the "test_report.pdf" file located in the root directory of this repository. 
+The test report summarizing the results of the automated tests is available in the "test_report.HTML" file located in the root directory of this repository. 
