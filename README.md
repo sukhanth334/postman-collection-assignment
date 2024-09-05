@@ -21,7 +21,7 @@ Running Tests
    - Go to the "Collections" tab and find "Assignment API Tests."
 3. Run the Collection:
    - Click the "Run" button to open the Collection Runner.
-   - Select the environment (if applicable) and click "Start Test."
+   - Select the environment if applicable and click "Start Test."
 4. Review Results:
    - Check the results in the Collection Runner interface to see the test outcomes.
 
