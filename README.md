@@ -9,10 +9,10 @@ This repository contains automated tests for the Postman-collection-assignment. 
 1. Open Postman.
 2. Import the Collection:
    - Click on the "Import" button in the top left corner.
-   - Choose the "File" tab and upload the `Assignment_API_Tests.json` file to import the collection.
+   - Choose the "File" tab and upload the "Assignment_API_Tests.json" file to import the collection.
 3. Import the Environment :
    - Click on the "Environments" tab in Postman.
-   - Use the "Import" button to upload the `environment.json` file if you have one.
+   - Use the "Import" button to upload the "environment.json" file if you have one.
 
 Running Tests
 
@@ -26,4 +26,4 @@ Running Tests
    - Check the results in the Collection Runner interface to see the test outcomes.
 
  Test Report
-The test report summarizing the results of the automated tests is available in the `test_report.pdf` file located in the root directory of this repository. 
+The test report summarizing the results of the automated tests is available in the "test_report.pdf" file located in the root directory of this repository. 
