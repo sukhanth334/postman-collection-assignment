@@ -1,0 +1,975 @@
+{
+	"info": {
+		"_postman_id": "5eb49aae-3a63-46ae-bd95-952e7045246e",
+		"name": "Assignment API Tests",
+		"description": "StartFragmentThis collection contains automated tests for the cs-demo APIEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30770515"
+	},
+	"item": [
+		{
+			"name": "Assignment API",
+			"item": [
+				{
+					"name": "Register New User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"User registration is successful\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.json()).to.have.property('id');\r",
+									"});\r",
+									"pm.test(\"Response contains expected data\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData).to.have.property('password');\r",
+									"     pm.expect(jsonData).to.have.property('username');\r",
+									"      pm.expect(jsonData).to.have.property('email');\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Response time is within acceptable range\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000); \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Sukhanth M P\",\r\n  \"email\": \"Sukhanthmp1322@gmail.com\",\r\n  \"password\": \"sukhantH123...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "The HTTP POST request to `/users` endpoint is used to create a new user.\n\n### Request Body\n\n- The request body should be in raw format with the following parameters:\n    \n    - `username` (string): The username of the new user.\n        \n    - `email` (string): The email of the new user.\n        \n    - `password` (string): The password of the new user.\n        \n\n### Response\n\nThe response will have a status code of 201 and a content type of `application/json`. The response body will be a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"username\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"id\": {\n      \"type\": \"integer\"\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Responce Delete a Post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Sukhanth M P\",\r\n  \"email\": \"Sukhanthmp1322@gmail.com\",\r\n  \"password\": \"sukhantH123...\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 05 Sep 2024 09:38:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1725529091&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=%2FRGnuDZRiMMxAhjF7GPjo0o%2BaMNiLBwMKBet95qKyvA%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1725529091&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=%2FRGnuDZRiMMxAhjF7GPjo0o%2BaMNiLBwMKBet95qKyvA%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1725529107"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "https://jsonplaceholder.typicode.com/users/11"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"73-t1QpeJnEDyJFKTx6KuxJV3U+emg\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8be53eb41faad46f-IAD"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"Sukhanth M P\",\n    \"email\": \"Sukhanthmp1322@gmail.com\",\n    \"password\": \"sukhantH123...\",\n    \"id\": 11\n}"
+						}
+					]
+				},
+				{
+					"name": "Login Existing User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.property('username');\r",
+									"    pm.expect(responseData).to.have.property('email');\r",
+									"    pm.expect(responseData).to.have.property('password');\r",
+									"    pm.expect(responseData).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Username is a non-empty string\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.username).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Username should not be empty\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Email is in a valid email format\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.email).to.be.a('string');\r",
+									"    pm.expect(responseData.email).to.match(/^\\S+@\\S+\\.\\S+$/);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response schema has the correct data types and structure\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.username).to.be.a('string');\r",
+									"    pm.expect(responseData.email).to.be.a('string');\r",
+									"    pm.expect(responseData.password).to.be.a('string');\r",
+									"    pm.expect(responseData.id).to.be.a('number');\r",
+									"});\r",
+									"pm.test(\"Response time is within acceptable range\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000); \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\"username\": \"Sukhanth M P\",\r\n  \"email\": \"Sukhanthmp1322@gmail.com\",\r\n  \"password\": \"sukhantH123...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Responce Login Existing User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\"username\": \"Sukhanth M P\",\r\n  \"email\": \"Sukhanthmp1322@gmail.com\",\r\n  \"password\": \"sukhantH123...\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 05 Sep 2024 09:39:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1725529148&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=M3e0Y7HDcP3bhkJsKY7Fh5mzuvBcRDz2lg8u%2Fao7RIg%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1725529148&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=M3e0Y7HDcP3bhkJsKY7Fh5mzuvBcRDz2lg8u%2Fao7RIg%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1725529167"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "https://jsonplaceholder.typicode.com/users/11"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"73-t1QpeJnEDyJFKTx6KuxJV3U+emg\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8be540187f73c984-IAD"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"Sukhanth M P\",\n    \"email\": \"Sukhanthmp1322@gmail.com\",\n    \"password\": \"sukhantH123...\",\n    \"id\": 11\n}"
+						}
+					]
+				},
+				{
+					"name": "Create New Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields - title, content, and id\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.property('title');\r",
+									"    pm.expect(responseData).to.have.property('content');\r",
+									"    pm.expect(responseData).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Title and content are non-empty strings\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+									"  pm.expect(responseData.content).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Content should not be empty\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Id is a non-negative integer\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData.id).to.be.a('number');\r",
+									"  pm.expect(responseData.id).to.be.at.least(0, \"Id should be a non-negative integer\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is within an acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"My First Post\",\r\n  \"content\": \"This is the content of the first post hi everyone \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Responce Create New Post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"My First Post\",\r\n  \"content\": \"This is the content of the first post hi everyone \"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 05 Sep 2024 09:39:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1725529199&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=j8A61Sa%2FBAteyszI82M8pmx4Q76SSSD%2FCVVaRhR2mVs%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1725529199&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=j8A61Sa%2FBAteyszI82M8pmx4Q76SSSD%2FCVVaRhR2mVs%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "999"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1725529227"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "https://jsonplaceholder.typicode.com/users/11"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"6d-0ER4QdlHC5gLq6xdqQImUZN7eJM\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8be541574da438ac-IAD"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"My First Post\",\n    \"content\": \"This is the content of the first post hi everyone \",\n    \"id\": 11\n}"
+						}
+					]
+				},
+				{
+					"name": "Get List of Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response contains an array of posts\", function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.be.an('array');\r",
+									"  pm.expect(jsonData.length).to.be.greaterThan(0);\r",
+									"  \r",
+									"});\r",
+									"pm.test(\"Response time is within acceptable range\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000); // Example: less than 2 seconds\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Responce Get List of Post",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 05 Sep 2024 09:44:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1719347713&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=Dnv%2FEHJK%2BG6aJyOVwnEUGdtgEhdz991YSKyAtIwZnHI%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1719347713&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=Dnv%2FEHJK%2BG6aJyOVwnEUGdtgEhdz991YSKyAtIwZnHI%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "998"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1719347766"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=43200"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"160d-1eMSsxeJRfnVLRBmYJSbCiJZ1qQ\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "HIT"
+								},
+								{
+									"key": "Age",
+									"value": "18122"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8be54758b82cc98c-IAD"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Leanne Graham\",\n        \"username\": \"Bret\",\n        \"email\": \"Sincere@april.biz\",\n        \"address\": {\n            \"street\": \"Kulas Light\",\n            \"suite\": \"Apt. 556\",\n            \"city\": \"Gwenborough\",\n            \"zipcode\": \"92998-3874\",\n            \"geo\": {\n                \"lat\": \"-37.3159\",\n                \"lng\": \"81.1496\"\n            }\n        },\n        \"phone\": \"1-770-736-8031 x56442\",\n        \"website\": \"hildegard.org\",\n        \"company\": {\n            \"name\": \"Romaguera-Crona\",\n            \"catchPhrase\": \"Multi-layered client-server neural-net\",\n            \"bs\": \"harness real-time e-markets\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Ervin Howell\",\n        \"username\": \"Antonette\",\n        \"email\": \"Shanna@melissa.tv\",\n        \"address\": {\n            \"street\": \"Victor Plains\",\n            \"suite\": \"Suite 879\",\n            \"city\": \"Wisokyburgh\",\n            \"zipcode\": \"90566-7771\",\n            \"geo\": {\n                \"lat\": \"-43.9509\",\n                \"lng\": \"-34.4618\"\n            }\n        },\n        \"phone\": \"010-692-6593 x09125\",\n        \"website\": \"anastasia.net\",\n        \"company\": {\n            \"name\": \"Deckow-Crist\",\n            \"catchPhrase\": \"Proactive didactic contingency\",\n            \"bs\": \"synergize scalable supply-chains\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Clementine Bauch\",\n        \"username\": \"Samantha\",\n        \"email\": \"Nathan@yesenia.net\",\n        \"address\": {\n            \"street\": \"Douglas Extension\",\n            \"suite\": \"Suite 847\",\n            \"city\": \"McKenziehaven\",\n            \"zipcode\": \"59590-4157\",\n            \"geo\": {\n                \"lat\": \"-68.6102\",\n                \"lng\": \"-47.0653\"\n            }\n        },\n        \"phone\": \"1-463-123-4447\",\n        \"website\": \"ramiro.info\",\n        \"company\": {\n            \"name\": \"Romaguera-Jacobson\",\n            \"catchPhrase\": \"Face to face bifurcated interface\",\n            \"bs\": \"e-enable strategic applications\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Patricia Lebsack\",\n        \"username\": \"Karianne\",\n        \"email\": \"Julianne.OConner@kory.org\",\n        \"address\": {\n            \"street\": \"Hoeger Mall\",\n            \"suite\": \"Apt. 692\",\n            \"city\": \"South Elvis\",\n            \"zipcode\": \"53919-4257\",\n            \"geo\": {\n                \"lat\": \"29.4572\",\n                \"lng\": \"-164.2990\"\n            }\n        },\n        \"phone\": \"493-170-9623 x156\",\n        \"website\": \"kale.biz\",\n        \"company\": {\n            \"name\": \"Robel-Corkery\",\n            \"catchPhrase\": \"Multi-tiered zero tolerance productivity\",\n            \"bs\": \"transition cutting-edge web services\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Chelsey Dietrich\",\n        \"username\": \"Kamren\",\n        \"email\": \"Lucio_Hettinger@annie.ca\",\n        \"address\": {\n            \"street\": \"Skiles Walks\",\n            \"suite\": \"Suite 351\",\n            \"city\": \"Roscoeview\",\n            \"zipcode\": \"33263\",\n            \"geo\": {\n                \"lat\": \"-31.8129\",\n                \"lng\": \"62.5342\"\n            }\n        },\n        \"phone\": \"(254)954-1289\",\n        \"website\": \"demarco.info\",\n        \"company\": {\n            \"name\": \"Keebler LLC\",\n            \"catchPhrase\": \"User-centric fault-tolerant solution\",\n            \"bs\": \"revolutionize end-to-end systems\"\n        }\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Mrs. Dennis Schulist\",\n        \"username\": \"Leopoldo_Corkery\",\n        \"email\": \"Karley_Dach@jasper.info\",\n        \"address\": {\n            \"street\": \"Norberto Crossing\",\n            \"suite\": \"Apt. 950\",\n            \"city\": \"South Christy\",\n            \"zipcode\": \"23505-1337\",\n            \"geo\": {\n                \"lat\": \"-71.4197\",\n                \"lng\": \"71.7478\"\n            }\n        },\n        \"phone\": \"1-477-935-8478 x6430\",\n        \"website\": \"ola.org\",\n        \"company\": {\n            \"name\": \"Considine-Lockman\",\n            \"catchPhrase\": \"Synchronised bottom-line interface\",\n            \"bs\": \"e-enable innovative applications\"\n        }\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Kurtis Weissnat\",\n        \"username\": \"Elwyn.Skiles\",\n        \"email\": \"Telly.Hoeger@billy.biz\",\n        \"address\": {\n            \"street\": \"Rex Trail\",\n            \"suite\": \"Suite 280\",\n            \"city\": \"Howemouth\",\n            \"zipcode\": \"58804-1099\",\n            \"geo\": {\n                \"lat\": \"24.8918\",\n                \"lng\": \"21.8984\"\n            }\n        },\n        \"phone\": \"210.067.6132\",\n        \"website\": \"elvis.io\",\n        \"company\": {\n            \"name\": \"Johns Group\",\n            \"catchPhrase\": \"Configurable multimedia task-force\",\n            \"bs\": \"generate enterprise e-tailers\"\n        }\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Nicholas Runolfsdottir V\",\n        \"username\": \"Maxime_Nienow\",\n        \"email\": \"Sherwood@rosamond.me\",\n        \"address\": {\n            \"street\": \"Ellsworth Summit\",\n            \"suite\": \"Suite 729\",\n            \"city\": \"Aliyaview\",\n            \"zipcode\": \"45169\",\n            \"geo\": {\n                \"lat\": \"-14.3990\",\n                \"lng\": \"-120.7677\"\n            }\n        },\n        \"phone\": \"586.493.6943 x140\",\n        \"website\": \"jacynthe.com\",\n        \"company\": {\n            \"name\": \"Abernathy Group\",\n            \"catchPhrase\": \"Implemented secondary concept\",\n            \"bs\": \"e-enable extensible e-tailers\"\n        }\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Glenna Reichert\",\n        \"username\": \"Delphine\",\n        \"email\": \"Chaim_McDermott@dana.io\",\n        \"address\": {\n            \"street\": \"Dayna Park\",\n            \"suite\": \"Suite 449\",\n            \"city\": \"Bartholomebury\",\n            \"zipcode\": \"76495-3109\",\n            \"geo\": {\n                \"lat\": \"24.6463\",\n                \"lng\": \"-168.8889\"\n            }\n        },\n        \"phone\": \"(775)976-6794 x41206\",\n        \"website\": \"conrad.com\",\n        \"company\": {\n            \"name\": \"Yost and Sons\",\n            \"catchPhrase\": \"Switchable contextually-based project\",\n            \"bs\": \"aggregate real-time technologies\"\n        }\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Clementina DuBuque\",\n        \"username\": \"Moriah.Stanton\",\n        \"email\": \"Rey.Padberg@karina.biz\",\n        \"address\": {\n            \"street\": \"Kattie Turnpike\",\n            \"suite\": \"Suite 198\",\n            \"city\": \"Lebsackbury\",\n            \"zipcode\": \"31428-2261\",\n            \"geo\": {\n                \"lat\": \"-38.2386\",\n                \"lng\": \"57.2232\"\n            }\n        },\n        \"phone\": \"024-648-3804\",\n        \"website\": \"ambrose.net\",\n        \"company\": {\n            \"name\": \"Hoeger LLC\",\n            \"catchPhrase\": \"Centralized empowering task-force\",\n            \"bs\": \"target end-to-end models\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete a Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Post deletion is successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response has content\", function () {\r",
+									"    pm.response.to.not.have.body(\"\");\r",
+									"});\r",
+									"pm.test(\"Response time is within acceptable range\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000); \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users/2",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Responce Delete a Post",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users/2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 05 Sep 2024 09:46:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1725529583&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=HkmWb7hVj%2FRGvUIDMV%2F129iWj%2BTbMLGnd0ZyniDBGWM%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1725529583&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=HkmWb7hVj%2FRGvUIDMV%2F129iWj%2BTbMLGnd0ZyniDBGWM%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "1000"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "996"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1725529587"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8be54ab65bffc93f-IAD"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
